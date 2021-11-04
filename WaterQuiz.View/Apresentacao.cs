@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WaterQuiz.View
 {
-    public partial class Form1 : Form
+    public partial class Apresentacao : Form
     {
-        public Form1()
+        public Apresentacao()
         {
             InitializeComponent();
         }
