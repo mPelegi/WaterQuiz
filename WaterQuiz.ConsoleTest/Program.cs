@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace WaterQuiz.ConsoleTest
 {
@@ -6,7 +7,9 @@ namespace WaterQuiz.ConsoleTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            Console.WriteLine(projectDirectory);
+            Console.ReadKey();
         }
     }
 }
