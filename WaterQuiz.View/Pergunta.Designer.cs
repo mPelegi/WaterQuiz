@@ -46,8 +46,16 @@ namespace WaterQuiz.View
             this.label2 = new System.Windows.Forms.Label();
             this.btConfirma = new System.Windows.Forms.Button();
             this.btVoltar = new System.Windows.Forms.Button();
+            this.lblAlternativa1 = new System.Windows.Forms.Label();
+            this.lblAlt2 = new System.Windows.Forms.Label();
+            this.lblAlt4 = new System.Windows.Forms.Label();
+            this.lblAlt3 = new System.Windows.Forms.Label();
             this.panelPergunta.SuspendLayout();
             this.panelAlternativas.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,9 +139,11 @@ namespace WaterQuiz.View
             this.rBAlt1.TabIndex = 4;
             this.rBAlt1.TabStop = true;
             this.rBAlt1.UseVisualStyleBackColor = true;
+            this.rBAlt1.CheckedChanged += new System.EventHandler(this.rBAlt1_CheckedChanged);
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lblAlt4);
             this.panel4.Location = new System.Drawing.Point(39, 227);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(709, 63);
@@ -141,6 +151,7 @@ namespace WaterQuiz.View
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblAlt3);
             this.panel3.Location = new System.Drawing.Point(39, 154);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(709, 63);
@@ -148,6 +159,7 @@ namespace WaterQuiz.View
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblAlt2);
             this.panel2.Location = new System.Drawing.Point(39, 81);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(709, 63);
@@ -155,6 +167,7 @@ namespace WaterQuiz.View
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblAlternativa1);
             this.panel1.Location = new System.Drawing.Point(39, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(709, 63);
@@ -217,6 +230,42 @@ namespace WaterQuiz.View
             this.btVoltar.Text = "VOLTAR";
             this.btVoltar.UseVisualStyleBackColor = false;
             // 
+            // lblAlternativa1
+            // 
+            this.lblAlternativa1.AutoSize = true;
+            this.lblAlternativa1.Location = new System.Drawing.Point(3, 10);
+            this.lblAlternativa1.Name = "lblAlternativa1";
+            this.lblAlternativa1.Size = new System.Drawing.Size(73, 15);
+            this.lblAlternativa1.TabIndex = 0;
+            this.lblAlternativa1.Text = "Alternativa 1";
+            // 
+            // lblAlt2
+            // 
+            this.lblAlt2.AutoSize = true;
+            this.lblAlt2.Location = new System.Drawing.Point(3, 9);
+            this.lblAlt2.Name = "lblAlt2";
+            this.lblAlt2.Size = new System.Drawing.Size(73, 15);
+            this.lblAlt2.TabIndex = 1;
+            this.lblAlt2.Text = "Alternativa 2";
+            // 
+            // lblAlt4
+            // 
+            this.lblAlt4.AutoSize = true;
+            this.lblAlt4.Location = new System.Drawing.Point(3, 9);
+            this.lblAlt4.Name = "lblAlt4";
+            this.lblAlt4.Size = new System.Drawing.Size(73, 15);
+            this.lblAlt4.TabIndex = 2;
+            this.lblAlt4.Text = "Alternativa 4";
+            // 
+            // lblAlt3
+            // 
+            this.lblAlt3.AutoSize = true;
+            this.lblAlt3.Location = new System.Drawing.Point(3, 9);
+            this.lblAlt3.Name = "lblAlt3";
+            this.lblAlt3.Size = new System.Drawing.Size(73, 15);
+            this.lblAlt3.TabIndex = 3;
+            this.lblAlt3.Text = "Alternativa 3";
+            // 
             // Pergunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,10 +279,19 @@ namespace WaterQuiz.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pergunta";
             this.Text = "Pergunta";
+            this.Load += new System.EventHandler(this.Pergunta_Load);
             this.panelPergunta.ResumeLayout(false);
             this.panelPergunta.PerformLayout();
             this.panelAlternativas.ResumeLayout(false);
             this.panelAlternativas.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -258,5 +316,9 @@ namespace WaterQuiz.View
         private System.Windows.Forms.RadioButton rBAlt3;
         private System.Windows.Forms.RadioButton rBAlt2;
         private System.Windows.Forms.RadioButton rBAlt1;
+        private System.Windows.Forms.Label lblAlt4;
+        private System.Windows.Forms.Label lblAlt3;
+        private System.Windows.Forms.Label lblAlt2;
+        private System.Windows.Forms.Label lblAlternativa1;
     }
 }

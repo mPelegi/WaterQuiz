@@ -74,6 +74,7 @@ namespace WaterQuiz.View
             this.btPlay.TabIndex = 3;
             this.btPlay.Text = "PLAY";
             this.btPlay.UseVisualStyleBackColor = false;
+            this.btPlay.Click += new System.EventHandler(this.btPlay_Click);
             // 
             // Apresentacao
             // 
@@ -86,6 +87,8 @@ namespace WaterQuiz.View
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Apresentacao";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
