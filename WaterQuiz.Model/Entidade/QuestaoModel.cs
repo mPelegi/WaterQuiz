@@ -8,6 +8,6 @@ namespace WaterQuiz.Model.Entidade
     {
         public int IdPergunta { get; set; }
         public string Descricao { get; set; }
-
+        public string Tipo { get; set; }
     }
 }
