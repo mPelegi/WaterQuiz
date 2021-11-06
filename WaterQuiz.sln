@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuiz.DAL", "WaterQuiz.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuiz.Model", "WaterQuiz.Model\WaterQuiz.Model.csproj", "{6FFEB1EA-2A45-409E-9BA9-2102F2BBC95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterQuiz.View", "WaterQuiz.View\WaterQuiz.View.csproj", "{D98BE9B3-2ABA-4404-ABF3-05FE135CC044}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuiz.View", "WaterQuiz.View\WaterQuiz.View.csproj", "{D98BE9B3-2ABA-4404-ABF3-05FE135CC044}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterQuiz.ConsoleTest", "WaterQuiz.ConsoleTest\WaterQuiz.ConsoleTest.csproj", "{D0669AF8-2A3D-474B-8B6C-C9B468DAE4BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuiz.ConsoleTest", "WaterQuiz.ConsoleTest\WaterQuiz.ConsoleTest.csproj", "{D0669AF8-2A3D-474B-8B6C-C9B468DAE4BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterQuiz.Utils", "WaterQuiz.Utils\WaterQuiz.Utils.csproj", "{034B87D7-3EBF-479E-ABA7-B48EDF1AC667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D0669AF8-2A3D-474B-8B6C-C9B468DAE4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0669AF8-2A3D-474B-8B6C-C9B468DAE4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0669AF8-2A3D-474B-8B6C-C9B468DAE4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{034B87D7-3EBF-479E-ABA7-B48EDF1AC667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034B87D7-3EBF-479E-ABA7-B48EDF1AC667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034B87D7-3EBF-479E-ABA7-B48EDF1AC667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034B87D7-3EBF-479E-ABA7-B48EDF1AC667}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SQLite;
+using WaterQuiz.Utils;
 
 namespace WaterQuiz.Model.DAO
 {
     public class ConexaoDAO
     {
         private SQLiteConnection connection;
-        private static readonly string connString = @"DataSource=C:\Users\muril\Documents\Padrdoes e Paradigmas\waterQuiz\WaterQuiz.DAL\resources\banco.db";
+        private static readonly string connString = string.Format(@"DataSource={0}", new DatabaseUtil().GetDatabasePath());
         private bool isOpen = false;
 
         public ConexaoDAO()

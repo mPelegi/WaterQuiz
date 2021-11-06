@@ -43,5 +43,50 @@ namespace WaterQuiz.DAL
                 throw;
             }
         }
+
+        public List<GabaritoModel> SelectByExample(GabaritoModel exemplo)
+        {
+            try
+            {
+                StringBuilder query = new StringBuilder();
+                query.AppendLine("SELECT idGabarito, idPergunta, idResposta FROM tb_gabarito WHERE 1 = 1");
+
+                if (exemplo.IdPergunta > 0)
+                {
+                    query.AppendLine(" AND idPergunta = @IdPergunta ");
+                }
+
+                if (exemplo.IdResposta > 0)
+                {
+                    query.AppendLine(" AND idResposta = @IdResposta");
+                }
+
+                List<GabaritoModel> retorno = new List<GabaritoModel>();
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query.ToString(), conexao.Get()))
+                {
+                    cmd.Parameters.AddWithValue("@IdPergunta", exemplo.IdPergunta);
+                    cmd.Parameters.AddWithValue("@IdResposta", exemplo.IdResposta);
+
+                    SQLiteDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        GabaritoModel gabarito = new GabaritoModel
+                        {
+                            IdGabarito = Convert.ToInt32(dataReader["idGabarito"]),
+                            IdPergunta = Convert.ToInt32(dataReader["idPergunta"]),
+                            IdResposta = Convert.ToInt32(dataReader["idResposta"])
+                        };
+                        retorno.Add(gabarito);
+                    }
+                }
+
+                return retorno;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

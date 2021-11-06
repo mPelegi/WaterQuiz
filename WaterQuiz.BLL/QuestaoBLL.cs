@@ -41,5 +41,23 @@ namespace WaterQuiz.BLL
                 conexaoDao.Fechar();
             }
         }
+
+        public List<QuestaoModel> ObterQuestoesAleatoriamente()
+        {
+            QuestaoContext questaoContext = new QuestaoContext();
+            Random random = new Random();
+
+            if(random.Next(2) == 0)
+            {
+                questaoContext.SetQuestaoContext(new UniqueQuestionsFirstStrategy());
+            }
+            else
+            {
+                questaoContext.SetQuestaoContext(new ValueQuestionsFirstStrategy());
+            }
+
+            return questaoContext.GetQuestionSequence();
+        }
+
     }
 }
