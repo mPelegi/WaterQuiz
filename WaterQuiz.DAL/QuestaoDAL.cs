@@ -30,7 +30,8 @@ namespace WaterQuiz.DAL
                         QuestaoModel questao = new QuestaoModel
                         {
                             IdPergunta = Convert.ToInt32(dataReader["idPergunta"]),
-                            Descricao = Convert.ToString(dataReader["descricao"])
+                            Descricao = Convert.ToString(dataReader["descricao"]),
+                            Tipo = Convert.ToString(dataReader["tipo"])
                         };
                         retorno.Add(questao);
                     }
