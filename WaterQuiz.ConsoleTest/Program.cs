@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using WaterQuiz.Utils;
 
 namespace WaterQuiz.ConsoleTest
 {
@@ -7,9 +8,15 @@ namespace WaterQuiz.ConsoleTest
     {
         static void Main(string[] args)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            Console.WriteLine(projectDirectory);
+            GetCaminhoDatabase();
+
             Console.ReadKey();
+        }
+
+        static void GetCaminhoDatabase()
+        {
+            string dbPath = new DatabaseUtil().GetDatabasePath();
+            Console.WriteLine(dbPath);
         }
     }
 }
