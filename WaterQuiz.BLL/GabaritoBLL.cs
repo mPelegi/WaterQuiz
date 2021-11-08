@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WaterQuiz.DAL;
 using WaterQuiz.Model.DAO;
@@ -41,6 +42,30 @@ namespace WaterQuiz.BLL
             {
                 conexaoDao.Fechar();
             }
+        }
+
+        public List<GabaritoModel> ObterPeloExemplo(GabaritoModel gabarito)
+        {
+            try
+            {
+                conexaoDao.Abrir();
+                return gabaritoDAL.SelectByExample(gabarito);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexaoDao.Fechar();
+            }
+        }
+
+        public bool VerificarRespostaCorreta(int idPergunta, int idResposta) //Receber um gabarito?
+        {
+            GabaritoModel gabarito = new GabaritoModel { IdPergunta = idPergunta };
+
+            return ObterPeloExemplo(gabarito).FirstOrDefault().IdResposta.Equals(idResposta) ? true : false;
         }
     }
 }
