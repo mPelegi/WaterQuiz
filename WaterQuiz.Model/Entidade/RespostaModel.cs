@@ -7,8 +7,8 @@ namespace WaterQuiz.Model.Entidade
     public class RespostaModel
     {
         public int IdResposta { get; set; }
-        public int IdQuestao { get; set; }
+        public int IdPergunta { get; set; }
         public string Descricao { get; set; }
-        public QuestaoModel Questao { get; set; }
+        public PerguntaModel Questao { get; set; }
     }
 }

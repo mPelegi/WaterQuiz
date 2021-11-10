@@ -41,5 +41,22 @@ namespace WaterQuiz.BLL
                 conexaoDao.Fechar();
             }
         }
+
+        public List<RespostaModel> ObterPeloExemplo(RespostaModel resposta)
+        {
+            try
+            {
+                conexaoDao.Abrir();
+                return respostaDal.SelectByExample(resposta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexaoDao.Fechar();
+            }
+        }
     }
 }

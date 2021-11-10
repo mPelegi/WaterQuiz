@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WaterQuiz.BLL\WaterQuiz.BLL.csproj" />
+    <ProjectReference Include="..\WaterQuiz.Model\WaterQuiz.Model.csproj" />
     <ProjectReference Include="..\WaterQuiz.Utils\WaterQuiz.Utils.csproj" />
   </ItemGroup>
 

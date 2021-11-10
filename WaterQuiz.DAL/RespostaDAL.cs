@@ -20,7 +20,7 @@ namespace WaterQuiz.DAL
         {
             try
             {
-                string query = string.Format("SELECT idResposta, idPergunta, descricao FROM resposta");
+                string query = string.Format("SELECT idResposta, idPergunta, descricao FROM tb_resposta");
                 List<RespostaModel> retorno = new List<RespostaModel>();
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexao.Get()))
                 {
@@ -30,13 +30,52 @@ namespace WaterQuiz.DAL
                         RespostaModel resposta = new RespostaModel
                         {
                             IdResposta = Convert.ToInt32(dataReader["idResposta"]),
-                            IdQuestao = Convert.ToInt32(dataReader["idPergunta"]),
+                            IdPergunta = Convert.ToInt32(dataReader["idPergunta"]),
                             Descricao = Convert.ToString(dataReader["descricao"])
                         };
 
                         retorno.Add(resposta);
                     }
                 }
+                return retorno;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public List<RespostaModel> SelectByExample(RespostaModel exemplo)
+        {
+            try
+            {
+                StringBuilder query = new StringBuilder();
+                query.AppendLine("SELECT idResposta, idPergunta, descricao FROM tb_resposta WHERE 1 = 1");
+
+                if (exemplo.IdPergunta > 0)
+                {
+                    query.AppendLine(" AND idPergunta = @IdPergunta ");
+                }
+
+                List<RespostaModel> retorno = new List<RespostaModel>();
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query.ToString(), conexao.Get()))
+                {
+                    cmd.Parameters.AddWithValue("@IdPergunta", exemplo.IdPergunta);
+
+                    SQLiteDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        RespostaModel resposta = new RespostaModel
+                        {
+                            IdResposta = Convert.ToInt32(dataReader["idResposta"]),
+                            IdPergunta = Convert.ToInt32(dataReader["idPergunta"]),
+                            Descricao = Convert.ToString(dataReader["descricao"])
+                        };
+                        retorno.Add(resposta);
+                    }
+                }
+
                 return retorno;
             }
             catch (Exception e)

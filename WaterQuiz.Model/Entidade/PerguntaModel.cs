@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WaterQuiz.Model.Entidade
 {
-    public class QuestaoModel
+    public class PerguntaModel
     {
         public int IdPergunta { get; set; }
         public string Descricao { get; set; }
