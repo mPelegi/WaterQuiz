@@ -7,17 +7,17 @@ using WaterQuiz.Model.Entidade;
 
 namespace WaterQuiz.BLL
 {
-    public class QuestaoBLL
+    public class PerguntaBLL
     {
-        private QuestaoDAL questaoDal;
+        private PerguntaDAL questaoDal;
         private ConexaoDAO conexaoDao;
 
-        public QuestaoBLL()
+        public PerguntaBLL()
         {
             try
             {
                 conexaoDao = new ConexaoDAO();
-                questaoDal = new QuestaoDAL(conexaoDao);
+                questaoDal = new PerguntaDAL(conexaoDao);
             }
             catch (Exception)
             {
@@ -25,7 +25,7 @@ namespace WaterQuiz.BLL
             }
         }
 
-        public List<QuestaoModel> ObterTodos()
+        public List<PerguntaModel> ObterTodos()
         {
             try
             {
@@ -42,21 +42,21 @@ namespace WaterQuiz.BLL
             }
         }
 
-        public List<QuestaoModel> ObterQuestoesAleatoriamente()
+        public List<PerguntaModel> ObterPerguntasAleatoriamente()
         {
-            QuestaoContext questaoContext = new QuestaoContext();
+            PerguntaContext perguntaContext = new PerguntaContext();
             Random random = new Random();
 
             if(random.Next(2) == 0)
             {
-                questaoContext.SetQuestaoContext(new UniqueQuestionsFirstStrategy());
+                perguntaContext.SetPerguntaContext(new UniqueQuestionsFirstStrategy());
             }
             else
             {
-                questaoContext.SetQuestaoContext(new ValueQuestionsFirstStrategy());
+                perguntaContext.SetPerguntaContext(new ValueQuestionsFirstStrategy());
             }
 
-            return questaoContext.GetQuestionSequence();
+            return perguntaContext.GetQuestionSequence();
         }
 
     }

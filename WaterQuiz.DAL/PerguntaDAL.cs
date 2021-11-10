@@ -7,27 +7,27 @@ using WaterQuiz.Model.Entidade;
 
 namespace WaterQuiz.DAL
 {
-    public class QuestaoDAL
+    public class PerguntaDAL
     {
         private ConexaoDAO conexao;
 
-        public QuestaoDAL(ConexaoDAO conexao)
+        public PerguntaDAL(ConexaoDAO conexao)
         {
             this.conexao = conexao;
         }
 
-        public List<QuestaoModel> SelectAll()
+        public List<PerguntaModel> SelectAll()
         {
             try
             {
-                string query = string.Format("SELECT idPergunta, descricao FROM tb_pergunta");
-                List<QuestaoModel> retorno = new List<QuestaoModel>();
+                string query = string.Format("SELECT idPergunta, descricao, tipo FROM tb_pergunta");
+                List<PerguntaModel> retorno = new List<PerguntaModel>();
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexao.Get()))
                 {
                     SQLiteDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
                     {
-                        QuestaoModel questao = new QuestaoModel
+                        PerguntaModel questao = new PerguntaModel
                         {
                             IdPergunta = Convert.ToInt32(dataReader["idPergunta"]),
                             Descricao = Convert.ToString(dataReader["descricao"]),

@@ -5,8 +5,8 @@ using WaterQuiz.Model.Entidade;
 
 namespace WaterQuiz.BLL.Interface
 {
-    public interface IQuestaoStrategy
+    public interface IPerguntaStrategy
     {
-        List<QuestaoModel> OrderQuestions(List<QuestaoModel> questions);
+        List<PerguntaModel> OrderQuestions(List<PerguntaModel> questions);
     }
 }
