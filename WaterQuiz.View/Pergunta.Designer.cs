@@ -31,32 +31,20 @@ namespace WaterQuiz.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pergunta));
             this.panelPergunta = new System.Windows.Forms.Panel();
-            this.lblPergunta = new System.Windows.Forms.Label();
+            this.rTBPergunta = new System.Windows.Forms.RichTextBox();
+            this.panelResposta = new System.Windows.Forms.Panel();
+            this.btAltD = new System.Windows.Forms.Button();
+            this.btAltC = new System.Windows.Forms.Button();
+            this.btAltB = new System.Windows.Forms.Button();
+            this.btAltA = new System.Windows.Forms.Button();
             this.panelAlternativas = new System.Windows.Forms.Panel();
-            this.rBAlt4 = new System.Windows.Forms.RadioButton();
-            this.rBAlt3 = new System.Windows.Forms.RadioButton();
-            this.rBAlt2 = new System.Windows.Forms.RadioButton();
-            this.rBAlt1 = new System.Windows.Forms.RadioButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAlternativas = new System.Windows.Forms.Label();
             this.btConfirma = new System.Windows.Forms.Button();
             this.btVoltar = new System.Windows.Forms.Button();
-            this.lblAlternativa1 = new System.Windows.Forms.Label();
-            this.lblAlt2 = new System.Windows.Forms.Label();
-            this.lblAlt4 = new System.Windows.Forms.Label();
-            this.lblAlt3 = new System.Windows.Forms.Label();
+            this.btFinalizar = new System.Windows.Forms.Button();
             this.panelPergunta.SuspendLayout();
+            this.panelResposta.SuspendLayout();
             this.panelAlternativas.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPergunta
@@ -64,153 +52,126 @@ namespace WaterQuiz.View
             this.panelPergunta.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelPergunta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelPergunta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelPergunta.Controls.Add(this.lblPergunta);
-            this.panelPergunta.Location = new System.Drawing.Point(12, 3);
+            this.panelPergunta.Controls.Add(this.rTBPergunta);
+            this.panelPergunta.Location = new System.Drawing.Point(13, 3);
             this.panelPergunta.Name = "panelPergunta";
-            this.panelPergunta.Size = new System.Drawing.Size(760, 210);
+            this.panelPergunta.Size = new System.Drawing.Size(759, 210);
             this.panelPergunta.TabIndex = 0;
             // 
-            // lblPergunta
+            // rTBPergunta
             // 
-            this.lblPergunta.AutoSize = true;
-            this.lblPergunta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPergunta.Location = new System.Drawing.Point(9, 4);
-            this.lblPergunta.MaximumSize = new System.Drawing.Size(800, 200);
-            this.lblPergunta.Name = "lblPergunta";
-            this.lblPergunta.Size = new System.Drawing.Size(739, 200);
-            this.lblPergunta.TabIndex = 0;
-            this.lblPergunta.Text = "Referente à toda a água disponível no planeta, qual a porcentagem aproximada dess" +
-    "a água é potável?\r\na\r\na\r\na\r\na\r\na\r\n";
-            this.lblPergunta.Click += new System.EventHandler(this.label1_Click);
+            this.rTBPergunta.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rTBPergunta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rTBPergunta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rTBPergunta.Location = new System.Drawing.Point(3, 3);
+            this.rTBPergunta.Name = "rTBPergunta";
+            this.rTBPergunta.ReadOnly = true;
+            this.rTBPergunta.Size = new System.Drawing.Size(749, 200);
+            this.rTBPergunta.TabIndex = 0;
+            this.rTBPergunta.Text = "";
+            // 
+            // panelResposta
+            // 
+            this.panelResposta.BackColor = System.Drawing.Color.LightGray;
+            this.panelResposta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelResposta.Controls.Add(this.btAltD);
+            this.panelResposta.Controls.Add(this.btAltC);
+            this.panelResposta.Controls.Add(this.btAltB);
+            this.panelResposta.Controls.Add(this.btAltA);
+            this.panelResposta.Controls.Add(this.panelAlternativas);
+            this.panelResposta.Location = new System.Drawing.Point(13, 219);
+            this.panelResposta.Name = "panelResposta";
+            this.panelResposta.Size = new System.Drawing.Size(759, 297);
+            this.panelResposta.TabIndex = 1;
+            // 
+            // btAltD
+            // 
+            this.btAltD.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btAltD.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btAltD.FlatAppearance.BorderSize = 2;
+            this.btAltD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.btAltD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAltD.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btAltD.Location = new System.Drawing.Point(575, 242);
+            this.btAltD.Name = "btAltD";
+            this.btAltD.Size = new System.Drawing.Size(147, 50);
+            this.btAltD.TabIndex = 4;
+            this.btAltD.Text = "D";
+            this.btAltD.UseVisualStyleBackColor = false;
+            this.btAltD.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btAltC
+            // 
+            this.btAltC.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btAltC.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btAltC.FlatAppearance.BorderSize = 2;
+            this.btAltC.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.btAltC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAltC.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btAltC.Location = new System.Drawing.Point(395, 242);
+            this.btAltC.Name = "btAltC";
+            this.btAltC.Size = new System.Drawing.Size(147, 50);
+            this.btAltC.TabIndex = 3;
+            this.btAltC.Text = "C";
+            this.btAltC.UseVisualStyleBackColor = false;
+            this.btAltC.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btAltB
+            // 
+            this.btAltB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btAltB.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btAltB.FlatAppearance.BorderSize = 2;
+            this.btAltB.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.btAltB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAltB.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btAltB.Location = new System.Drawing.Point(215, 242);
+            this.btAltB.Name = "btAltB";
+            this.btAltB.Size = new System.Drawing.Size(147, 50);
+            this.btAltB.TabIndex = 2;
+            this.btAltB.Text = "B";
+            this.btAltB.UseVisualStyleBackColor = false;
+            this.btAltB.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btAltA
+            // 
+            this.btAltA.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btAltA.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btAltA.FlatAppearance.BorderSize = 2;
+            this.btAltA.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.btAltA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAltA.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btAltA.Location = new System.Drawing.Point(35, 242);
+            this.btAltA.Name = "btAltA";
+            this.btAltA.Size = new System.Drawing.Size(147, 50);
+            this.btAltA.TabIndex = 1;
+            this.btAltA.Text = "A";
+            this.btAltA.UseVisualStyleBackColor = false;
+            this.btAltA.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelAlternativas
             // 
-            this.panelAlternativas.BackColor = System.Drawing.Color.LightGray;
-            this.panelAlternativas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAlternativas.Controls.Add(this.rBAlt4);
-            this.panelAlternativas.Controls.Add(this.rBAlt3);
-            this.panelAlternativas.Controls.Add(this.rBAlt2);
-            this.panelAlternativas.Controls.Add(this.rBAlt1);
-            this.panelAlternativas.Controls.Add(this.panel4);
-            this.panelAlternativas.Controls.Add(this.panel3);
-            this.panelAlternativas.Controls.Add(this.panel2);
-            this.panelAlternativas.Controls.Add(this.panel1);
-            this.panelAlternativas.Location = new System.Drawing.Point(12, 219);
+            this.panelAlternativas.Controls.Add(this.lblAlternativas);
+            this.panelAlternativas.Location = new System.Drawing.Point(10, 3);
             this.panelAlternativas.Name = "panelAlternativas";
-            this.panelAlternativas.Size = new System.Drawing.Size(759, 297);
-            this.panelAlternativas.TabIndex = 1;
+            this.panelAlternativas.Size = new System.Drawing.Size(738, 233);
+            this.panelAlternativas.TabIndex = 0;
             // 
-            // rBAlt4
+            // lblAlternativas
             // 
-            this.rBAlt4.AutoSize = true;
-            this.rBAlt4.Location = new System.Drawing.Point(10, 252);
-            this.rBAlt4.Name = "rBAlt4";
-            this.rBAlt4.Size = new System.Drawing.Size(14, 13);
-            this.rBAlt4.TabIndex = 7;
-            this.rBAlt4.TabStop = true;
-            this.rBAlt4.UseVisualStyleBackColor = true;
-            // 
-            // rBAlt3
-            // 
-            this.rBAlt3.AutoSize = true;
-            this.rBAlt3.Location = new System.Drawing.Point(10, 182);
-            this.rBAlt3.Name = "rBAlt3";
-            this.rBAlt3.Size = new System.Drawing.Size(14, 13);
-            this.rBAlt3.TabIndex = 6;
-            this.rBAlt3.TabStop = true;
-            this.rBAlt3.UseVisualStyleBackColor = true;
-            // 
-            // rBAlt2
-            // 
-            this.rBAlt2.AutoSize = true;
-            this.rBAlt2.Location = new System.Drawing.Point(10, 108);
-            this.rBAlt2.Name = "rBAlt2";
-            this.rBAlt2.Size = new System.Drawing.Size(14, 13);
-            this.rBAlt2.TabIndex = 5;
-            this.rBAlt2.TabStop = true;
-            this.rBAlt2.UseVisualStyleBackColor = true;
-            // 
-            // rBAlt1
-            // 
-            this.rBAlt1.AutoSize = true;
-            this.rBAlt1.Location = new System.Drawing.Point(10, 31);
-            this.rBAlt1.Name = "rBAlt1";
-            this.rBAlt1.Size = new System.Drawing.Size(14, 13);
-            this.rBAlt1.TabIndex = 4;
-            this.rBAlt1.TabStop = true;
-            this.rBAlt1.UseVisualStyleBackColor = true;
-            this.rBAlt1.CheckedChanged += new System.EventHandler(this.rBAlt1_CheckedChanged);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lblAlt4);
-            this.panel4.Location = new System.Drawing.Point(39, 227);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(709, 63);
-            this.panel4.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblAlt3);
-            this.panel3.Location = new System.Drawing.Point(39, 154);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(709, 63);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblAlt2);
-            this.panel2.Location = new System.Drawing.Point(39, 81);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(709, 63);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblAlternativa1);
-            this.panel1.Location = new System.Drawing.Point(39, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(709, 63);
-            this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(3, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Litros disponíveis";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Location = new System.Drawing.Point(269, 523);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(247, 37);
-            this.panel5.TabIndex = 3;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(180, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 30);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "999";
+            this.lblAlternativas.AutoSize = true;
+            this.lblAlternativas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAlternativas.Location = new System.Drawing.Point(12, 3);
+            this.lblAlternativas.Name = "lblAlternativas";
+            this.lblAlternativas.Size = new System.Drawing.Size(0, 25);
+            this.lblAlternativas.TabIndex = 0;
+            this.lblAlternativas.Click += new System.EventHandler(this.lblAlternativas_Click);
             // 
             // btConfirma
             // 
             this.btConfirma.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btConfirma.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btConfirma.FlatAppearance.BorderSize = 2;
+            this.btConfirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btConfirma.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btConfirma.Location = new System.Drawing.Point(648, 522);
             this.btConfirma.Name = "btConfirma";
@@ -222,7 +183,10 @@ namespace WaterQuiz.View
             // 
             // btVoltar
             // 
-            this.btVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btVoltar.BackColor = System.Drawing.Color.LightCoral;
+            this.btVoltar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btVoltar.FlatAppearance.BorderSize = 2;
+            this.btVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btVoltar.Location = new System.Drawing.Point(23, 522);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(113, 32);
@@ -230,70 +194,42 @@ namespace WaterQuiz.View
             this.btVoltar.Text = "VOLTAR";
             this.btVoltar.UseVisualStyleBackColor = false;
             // 
-            // lblAlternativa1
+            // btFinalizar
             // 
-            this.lblAlternativa1.AutoSize = true;
-            this.lblAlternativa1.Location = new System.Drawing.Point(3, 10);
-            this.lblAlternativa1.Name = "lblAlternativa1";
-            this.lblAlternativa1.Size = new System.Drawing.Size(73, 15);
-            this.lblAlternativa1.TabIndex = 0;
-            this.lblAlternativa1.Text = "Alternativa 1";
-            // 
-            // lblAlt2
-            // 
-            this.lblAlt2.AutoSize = true;
-            this.lblAlt2.Location = new System.Drawing.Point(3, 9);
-            this.lblAlt2.Name = "lblAlt2";
-            this.lblAlt2.Size = new System.Drawing.Size(73, 15);
-            this.lblAlt2.TabIndex = 1;
-            this.lblAlt2.Text = "Alternativa 2";
-            // 
-            // lblAlt4
-            // 
-            this.lblAlt4.AutoSize = true;
-            this.lblAlt4.Location = new System.Drawing.Point(3, 9);
-            this.lblAlt4.Name = "lblAlt4";
-            this.lblAlt4.Size = new System.Drawing.Size(73, 15);
-            this.lblAlt4.TabIndex = 2;
-            this.lblAlt4.Text = "Alternativa 4";
-            // 
-            // lblAlt3
-            // 
-            this.lblAlt3.AutoSize = true;
-            this.lblAlt3.Location = new System.Drawing.Point(3, 9);
-            this.lblAlt3.Name = "lblAlt3";
-            this.lblAlt3.Size = new System.Drawing.Size(73, 15);
-            this.lblAlt3.TabIndex = 3;
-            this.lblAlt3.Text = "Alternativa 3";
+            this.btFinalizar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btFinalizar.FlatAppearance.BorderSize = 2;
+            this.btFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFinalizar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btFinalizar.Location = new System.Drawing.Point(529, 522);
+            this.btFinalizar.Name = "btFinalizar";
+            this.btFinalizar.Size = new System.Drawing.Size(113, 32);
+            this.btFinalizar.TabIndex = 6;
+            this.btFinalizar.Text = "FINALIZAR";
+            this.btFinalizar.UseVisualStyleBackColor = false;
+            this.btFinalizar.Visible = false;
+            this.btFinalizar.Click += new System.EventHandler(this.btFinalizar_Click);
             // 
             // Pergunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btFinalizar);
             this.Controls.Add(this.btVoltar);
             this.Controls.Add(this.btConfirma);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panelAlternativas);
+            this.Controls.Add(this.panelResposta);
             this.Controls.Add(this.panelPergunta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pergunta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pergunta";
             this.Load += new System.EventHandler(this.Pergunta_Load);
+            this.Shown += new System.EventHandler(this.Pergunta_Shown);
             this.panelPergunta.ResumeLayout(false);
-            this.panelPergunta.PerformLayout();
+            this.panelResposta.ResumeLayout(false);
             this.panelAlternativas.ResumeLayout(false);
             this.panelAlternativas.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -301,24 +237,16 @@ namespace WaterQuiz.View
         #endregion
 
         private System.Windows.Forms.Panel panelPergunta;
-        private System.Windows.Forms.Label lblPergunta;
-        private System.Windows.Forms.Panel panelAlternativas;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelResposta;
         private System.Windows.Forms.Button btConfirma;
         private System.Windows.Forms.Button btVoltar;
-        private System.Windows.Forms.RadioButton rBAlt4;
-        private System.Windows.Forms.RadioButton rBAlt3;
-        private System.Windows.Forms.RadioButton rBAlt2;
-        private System.Windows.Forms.RadioButton rBAlt1;
-        private System.Windows.Forms.Label lblAlt4;
-        private System.Windows.Forms.Label lblAlt3;
-        private System.Windows.Forms.Label lblAlt2;
-        private System.Windows.Forms.Label lblAlternativa1;
+        private System.Windows.Forms.Button btAltD;
+        private System.Windows.Forms.Button btAltC;
+        private System.Windows.Forms.Button btAltB;
+        private System.Windows.Forms.Button btAltA;
+        private System.Windows.Forms.Panel panelAlternativas;
+        private System.Windows.Forms.Label lblAlternativas;
+        private System.Windows.Forms.RichTextBox rTBPergunta;
+        private System.Windows.Forms.Button btFinalizar;
     }
 }

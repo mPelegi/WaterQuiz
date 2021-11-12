@@ -9,12 +9,15 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WaterQuiz.View.Util;
 
 namespace WaterQuiz.View
 {
     public partial class Apresentacao : Form
     {
-        Pergunta FormPergunta = new Pergunta();
+        Pergunta FormPergunta;
+        Som som = new Som();
+        Funcoes funcoes = new Funcoes();
         public Apresentacao()
         {
             InitializeComponent();
@@ -22,12 +25,17 @@ namespace WaterQuiz.View
 
         private void btPlay_Click(object sender, EventArgs e)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            SoundPlayer simpleSound = new SoundPlayer(projectDirectory + "\\Resources\\Show-do-Milhão-Musica-de-Seleção-de-Perguntas-1999_128k.wav");
-            simpleSound.Play();
+            FormPergunta = new Pergunta();
+            
 
-            //Application.Exit(Apresentacao);
-            FormPergunta.Show();
+            if (!funcoes.SingletonForms("Pergunta"))
+            {
+                som.ShowDoMilhao().Play();
+                //Application.Exit(Apresentacao);
+                FormPergunta.Show();
+            }
+
+
 
         }
     }
