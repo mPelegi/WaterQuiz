@@ -8,7 +8,7 @@ namespace WaterQuiz.Model.Entidade
     {
         public int IdPeso { get; set; }
         public int IdResposta { get; set; }
-        public double Peso { get; set; }
+        public decimal Peso { get; set; }
         public RespostaModel Resposta { get; set; }
     }
 }

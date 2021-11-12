@@ -32,6 +32,9 @@ namespace WaterQuiz.View
             this.label1 = new System.Windows.Forms.Label();
             this.rTBPontuacao = new System.Windows.Forms.RichTextBox();
             this.btTentarNovamente = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rTBAcertos = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +53,7 @@ namespace WaterQuiz.View
             this.rTBPontuacao.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rTBPontuacao.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rTBPontuacao.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.rTBPontuacao.Location = new System.Drawing.Point(327, 195);
+            this.rTBPontuacao.Location = new System.Drawing.Point(327, 133);
             this.rTBPontuacao.Multiline = false;
             this.rTBPontuacao.Name = "rTBPontuacao";
             this.rTBPontuacao.ReadOnly = true;
@@ -73,12 +76,55 @@ namespace WaterQuiz.View
             this.btTentarNovamente.UseVisualStyleBackColor = false;
             this.btTentarNovamente.Click += new System.EventHandler(this.btTentarNovamente_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(280, 237);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 65);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "ACERTOS";
+            // 
+            // rTBAcertos
+            // 
+            this.rTBAcertos.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.rTBAcertos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.rTBAcertos.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rTBAcertos.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.rTBAcertos.Location = new System.Drawing.Point(369, 305);
+            this.rTBAcertos.Multiline = false;
+            this.rTBAcertos.Name = "rTBAcertos";
+            this.rTBAcertos.ReadOnly = true;
+            this.rTBAcertos.Size = new System.Drawing.Size(34, 71);
+            this.rTBAcertos.TabIndex = 4;
+            this.rTBAcertos.Text = "2";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.richTextBox2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.richTextBox2.Location = new System.Drawing.Point(411, 305);
+            this.richTextBox2.Multiline = false;
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(46, 71);
+            this.richTextBox2.TabIndex = 5;
+            this.richTextBox2.Text = "/2";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            // 
             // Resultado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.rTBAcertos);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btTentarNovamente);
             this.Controls.Add(this.rTBPontuacao);
             this.Controls.Add(this.label1);
@@ -95,5 +141,8 @@ namespace WaterQuiz.View
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rTBPontuacao;
         private System.Windows.Forms.Button btTentarNovamente;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox rTBAcertos;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }

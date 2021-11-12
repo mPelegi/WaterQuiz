@@ -11,9 +11,15 @@ namespace WaterQuiz.View
     public partial class Resultado : Form
     {
         Apresentacao apresentacao = new Apresentacao();
-        public Resultado()
+        decimal pontuacao;
+        int acertos;
+        public Resultado(decimal pontuacao, int acertos)
         {
             InitializeComponent();
+            this.pontuacao = pontuacao;
+            this.acertos = acertos;
+            MostraPontuacao();
+
         }
 
         private void btTentarNovamente_Click(object sender, EventArgs e)
@@ -25,6 +31,17 @@ namespace WaterQuiz.View
                 if (Application.OpenForms[intIndex] != this)
                     Application.OpenForms[intIndex].Close();
             }
+        }
+
+        private void MostraPontuacao()
+        {
+            rTBPontuacao.Text = pontuacao.ToString();
+            rTBAcertos.Text = acertos.ToString();
+
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

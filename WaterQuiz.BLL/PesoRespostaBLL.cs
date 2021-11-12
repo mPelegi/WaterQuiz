@@ -42,5 +42,23 @@ namespace WaterQuiz.BLL
             }
         }
 
+        public List<PesoRespostaModel> ObterTodos()
+        {
+            try
+            {
+                conexaoDao.Abrir();
+                return pesoDal.SelectAll();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexaoDao.Fechar();
+            }
+        }
+
+
     }
 }

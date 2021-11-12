@@ -90,6 +90,7 @@ namespace WaterQuiz.View
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Apresentacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

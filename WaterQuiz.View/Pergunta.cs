@@ -19,11 +19,13 @@ namespace WaterQuiz.View
         string alternativaSelecionada = "";
         int i = 0;
         PerguntaModel perguntaAtual = new PerguntaModel();
-        Dictionary<int, int> perguntaResposta = new Dictionary<int, int>();
+        GabaritoBLL gabaritoBLL = new GabaritoBLL();
         List<RespostaModel> respostasUsuario = new List<RespostaModel>();
         List<RespostaModel> listaRespostas = new List<RespostaModel>();
-        Resultado formResultado = new Resultado();
+        List<PesoRespostaModel> listaPesos = new List<PesoRespostaModel>();
         Funcoes funcoes = new Funcoes();
+        decimal pontuacao = 0;
+        int acertos = 0;
 
 
         Som som = new Som();
@@ -31,6 +33,7 @@ namespace WaterQuiz.View
         {
             InitializeComponent();
             ProximaPergunta();
+            listaPesos = new PesoRespostaBLL().ObterTodos();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,8 +60,11 @@ namespace WaterQuiz.View
 
             if (dialogResult == DialogResult.Yes)
             {
+                SalvaResposta();
                 //validaResposta();
+                CalculaNota();
                 ProximaPergunta();
+                
             }
             
         }
@@ -84,6 +90,8 @@ namespace WaterQuiz.View
             int j = 0;
 
             listaRespostas = new RespostaBLL().ObterPeloExemplo(new RespostaModel { IdPergunta = listaPerguntas[i].IdPergunta });
+
+
             if (i+1 >= listaPerguntas.Count)
             {
                 btConfirma.Visible = false;
@@ -91,11 +99,16 @@ namespace WaterQuiz.View
 
             }
 
+            
             /*foreach (PerguntaModel pergunta in ListaPerguntas)
             {
                 lblPergunta.Text = pergunta.Descricao;
             } */
             rTBPergunta.Text = listaPerguntas[i].Descricao;
+            perguntaAtual = listaPerguntas[i];
+            if(perguntaAtual.Tipo == "PE")
+            {
+            }
             i++;
 
             lblAlternativas.Text = "";
@@ -119,49 +132,28 @@ namespace WaterQuiz.View
         {
             som.Gota().Play();
             alternativaSelecionada = "A";
-            RespostaModel respostaPergunta = respostasUsuario.Find(x => x.IdPergunta.Equals(perguntaAtual.IdPergunta));
-            if (respostaPergunta != null)
-            {
-                respostasUsuario.Remove(respostaPergunta);
-            }
-            respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[0].IdResposta });  
-
+            SalvaResposta();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             som.Gota().Play();
             alternativaSelecionada = "B";
-            RespostaModel respostaPergunta = respostasUsuario.Find(x => x.IdPergunta.Equals(perguntaAtual.IdPergunta));
-            if (respostaPergunta != null)
-            {
-                respostasUsuario.Remove(respostaPergunta);
-            }
-            respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[1].IdResposta });
+            SalvaResposta();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             som.Gota().Play();
             alternativaSelecionada = "C";
-            RespostaModel respostaPergunta = respostasUsuario.Find(x => x.IdPergunta.Equals(perguntaAtual.IdPergunta));
-            if (respostaPergunta != null)
-            {
-                respostasUsuario.Remove(respostaPergunta);
-            }
-            respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[2].IdResposta });
+            SalvaResposta();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             som.Gota().Play();
             alternativaSelecionada = "D";
-            RespostaModel respostaPergunta = respostasUsuario.Find(x => x.IdPergunta.Equals(perguntaAtual.IdPergunta));
-            if (respostaPergunta != null)
-            {
-                respostasUsuario.Remove(respostaPergunta);
-            }
-            respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[3].IdResposta });
+            SalvaResposta();
         }
 
         private void lblAlternativas_Click(object sender, EventArgs e)
@@ -185,9 +177,55 @@ namespace WaterQuiz.View
         {
             if (funcoes.SingletonForms("Resultado") == false)
             {
-                formResultado.Show();
+                new Resultado(pontuacao, acertos).Show();
             }
 
+        }
+
+        private void SalvaResposta()
+        {
+
+            RespostaModel respostaPergunta = respostasUsuario.Find(x => x.IdPergunta.Equals(perguntaAtual.IdPergunta));
+
+            if (respostaPergunta != null)
+            {
+                respostasUsuario.Remove(respostaPergunta);
+            }
+            switch (alternativaSelecionada)
+            {
+                case "A":
+                    respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[0].IdResposta });
+                    break;
+
+                case "B":
+                    respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[1].IdResposta });
+                    break;
+
+                case "C":
+                    respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[2].IdResposta });
+                    break;
+
+                case "D":
+                    respostasUsuario.Add(new RespostaModel { IdPergunta = perguntaAtual.IdPergunta, IdResposta = listaRespostas[3].IdResposta });
+                    break;
+            }
+        }
+
+        private void CalculaNota()
+        {
+            RespostaModel resposta = respostasUsuario.Last();
+
+            if (perguntaAtual.Tipo == "PE")
+            {
+                pontuacao += listaPesos.Find(x => x.IdResposta.Equals(respostasUsuario.Last().IdResposta)).Peso;
+            }
+            else
+            {
+                if (gabaritoBLL.VerificarRespostaCorreta(resposta.IdPergunta, resposta.IdResposta))
+                {
+                    acertos++;
+                }
+            }
         }
     }
 }

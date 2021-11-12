@@ -38,5 +38,10 @@ namespace WaterQuiz.View
 
 
         }
+
+        private void Apresentacao_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
