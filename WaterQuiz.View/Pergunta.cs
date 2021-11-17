@@ -22,7 +22,9 @@ namespace WaterQuiz.View
         GabaritoBLL gabaritoBLL = new GabaritoBLL();
         List<RespostaModel> respostasUsuario = new List<RespostaModel>();
         List<RespostaModel> listaRespostas = new List<RespostaModel>();
+        List<PerguntaModel> listaPerguntas = new List<PerguntaModel>();
         List<PesoRespostaModel> listaPesos = new List<PesoRespostaModel>();
+        PerguntaBLL perguntaBLL = new PerguntaBLL();
         Funcoes funcoes = new Funcoes();
         decimal pontuacao = 0;
         int acertos = 0;
@@ -32,8 +34,10 @@ namespace WaterQuiz.View
         public Pergunta()
         {
             InitializeComponent();
-            ProximaPergunta();
             listaPesos = new PesoRespostaBLL().ObterTodos();
+            listaPerguntas = perguntaBLL.ObterPerguntasAleatoriamente();
+            ProximaPergunta();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,11 +84,7 @@ namespace WaterQuiz.View
         }
 
         private void ProximaPergunta()
-        {
-            List<PerguntaModel> listaPerguntas;
-            PerguntaBLL perguntaBLL = new PerguntaBLL();
-            
-            listaPerguntas = perguntaBLL.ObterPerguntasAleatoriamente();
+        {       
             List<string> alternativas = new List<string>{ "A. ", "B. ", "C. ", "D. " };
             
             int j = 0;
