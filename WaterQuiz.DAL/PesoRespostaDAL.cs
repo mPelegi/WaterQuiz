@@ -37,9 +37,37 @@ namespace WaterQuiz.DAL
                         {
                             IdPeso = Convert.ToInt32(dataReader["idPeso"]),
                             IdResposta = Convert.ToInt32(dataReader["idResposta"]),
-                            Peso = Convert.ToDouble(dataReader["peso"])
+                            Peso = Convert.ToDecimal(dataReader["peso"])
                         };
                         retorno.Add(peso);
+                    }
+                }
+                return retorno;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public List<PesoRespostaModel> SelectAll()
+        {
+            try
+            {
+                string query = string.Format("SELECT idPeso, idResposta, peso FROM tb_peso_resposta");
+                List<PesoRespostaModel> retorno = new List<PesoRespostaModel>();
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexao.Get()))
+                {
+                    SQLiteDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        PesoRespostaModel questao = new PesoRespostaModel
+                        {
+                            IdPeso = Convert.ToInt32(dataReader["idPeso"]),
+                            IdResposta = Convert.ToInt32(dataReader["idResposta"]),
+                            Peso = Convert.ToInt32(dataReader["peso"])
+                        };
+                        retorno.Add(questao);
                     }
                 }
                 return retorno;
